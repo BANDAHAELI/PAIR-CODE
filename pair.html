@@ -3,309 +3,270 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sarkar-MD PAIR WEB</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <title>Ethix-MD</title>
+  <link rel="stylesheet" href="fontawesome/css/all.min.css">
   <style>
     body {
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
       height: 100vh;
       margin: 0;
-      background-image: url("https://files.catbox.moe/ncxavs.jpg"); /* Set the background image */
+      background-image: url("https://telegra.ph/file/7656761f40994fb763771.jpg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
       font-family: Arial, sans-serif;
+      transition: background-color 0.5s ease;
     }
 
     .container {
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-
-    .box {
-      width: 300px;
-      height: 330px;
+      background-color: rgba(255, 255, 255, 0.8);
       padding: 20px;
-      position: relative;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease-in;
+    }
+
+    .header {
       text-align: center;
-      background-color: rgba(255, 255, 255, 0.5);
-      border-radius: 10px;
-      transform: perspective(1000px) rotateY(0deg);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+      margin-bottom: 20px;
     }
 
-    #text {
-      color: #000; /* Set the text color to black (#000) */
+    .header h1 {
+      color: #0b8457;
+      font-size: 24px;
+      margin: 0;
     }
 
-    .input-container input {
-      color: #000; /* Set the text color to black (#000) */
-    }
-
-    .centered-text {
-      color: #000; /* Set the text color to black (#000) */
-    }
-
-    .input-container {
-      display: flex;
-      background: white;
-      border-radius: 1rem;
-      background: linear-gradient(45deg, #c5c5c5 0%, #ffffff 100%);
-      box-shadow: 20px 20px 20px #d8d8d8, -10px -10px 20px #f8f8f8;
-      padding: 0.3rem;
-      gap: 0.3rem;
-      max-width: 300px;
+    .main {
       width: 100%;
+      text-align: center;
     }
 
-    .input-container input {
-      border-radius: 0.8rem 0 0 0.8rem;
-      background: #e8e8e8;
-      box-shadow: inset 13px 13px 10px #dcdcdc, inset -13px -13px 10px #f4f4f4;
-      width: 89%;
-      flex-basis: 75%;
-      padding: 1rem;
+    .main input {
+      width: 80%;
+      max-width: 400px;
+      height: 40px;
+      border: 1px solid #ccc;
+      padding: 5px 15px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      border-radius: 25px;
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+    }
+
+    #countryCode {
+      width: 30%;
+      margin-right: 5px;
+    }
+
+    .main input:focus {
+      box-shadow: 0 0 10px #75d5a7;
+    }
+
+    .main button {
+      width: 80%;
+      max-width: 400px;
+      height: 45px;
+      font-size: 18px;
+      color: #fff;
+      background-color: #D84444;
       border: none;
-      border-left: 2px solid #0004ff;
-      color: #5e5e5e;
-      transition: all 0.2s ease-in-out;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-bottom: 10px;
     }
 
-    .input-container input:focus {
-      border-left: 2px solid #0004ff;
-      outline: none;
-      box-shadow: inset 13px 13px 10px #ffe1e1, inset -13px -13px 10px #f4f4f4;
+    .main button:hover {
+      background-color: #086a45;
     }
 
-    .input-container button {
-      flex-basis: 25%;
-      padding: 1rem;
-      background: linear-gradient(135deg, #8400ff 0%, #000000 100%);
-      font-weight: 900;
-      letter-spacing: 0.3rem;
-      text-transform: uppercase;
-      color: white;
+    #copyb {
+      width: 80%;
+      max-width: 400px;
+      height: 40px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #1cb84e;
       border: none;
-      width: 100%;
-      border-radius: 0 1rem 1rem 0;
-      transition: all 0.2s ease-in-out;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
     }
-    
-    .glowing-text {
-      margin-top: 20px;
-      font-size: 1.2rem;
+
+    #copyb:hover {
+      background-color: #179640;
+    }
+
+    #copy {
+      color: #333;
       font-weight: bold;
-      color: white;
-      text-shadow: 
-        0 0 5px #FF0000, 
-        0 0 10px #FF0000, 
-        0 0 15px #FF4500, 
-        0 0 20px #FF4500, 
-        0 0 25px #FF6347, 
-        0 0 30px #FF6347;
-      animation: glow 2s infinite;
-    }
-    
-    .input-container button:hover {
-      background: #2980b9; /* Update background color on hover */
+      cursor: pointer;
     }
 
-    #waiting-message {
-      color: #ffffff; /* Set text color to light grey */
-      margin-top: 10px;
+    .logo {
+      margin-bottom: 15px;
     }
 
-    @media (max-width: 500px) {
-      .input-container {
-        flex-direction: column;
-      }
-
-      .input-container input {
-        border-radius: 0.8rem;
-      }
-
-      .input-container button {
-        padding: 1rem;
-        border-radius: 0.8rem;
-      }
-    }
-
-    .centered-text {
-      text-align: center;
-    }
-
-    /* Add styles for the loading spinner */
-    #loading-spinner {
+    .loading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       display: none;
-      color: white;
-      margin-top: 10px;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.8);
+      z-index: 20;
     }
 
-    .fa-spinner {
-      animation: spin 2s linear infinite;
+    .loading div {
+      border: 4px solid #ccc;
+      border-top: 4px solid #0b8457;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
     }
 
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-    
-    .input-container button:hover {
-      background: linear-gradient(135deg, #0004ff 0%, #32CD32 100%);
+
+    .whatsapp-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: #fff;
+      background-color: #25D366;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s ease;
     }
 
-    @media (max-width: 500px) {
-      .input-container {
-        flex-direction: column;
-      }
-
-      .input-container input {
-        border-radius: 0.8rem;
-      }
-
-      .input-container button {
-        padding: 1rem;
-        border-radius: 0.8rem;
-      }
+    .whatsapp-button:hover {
+      background-color: #1EB34B;
     }
 
-    .centered-text {
-      text-align: center;
-    }
-
-    /* Glowing Text */
-    .glowing-text {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: white;
-      text-shadow: 
-        0 0 5px #FF0000, 
-        0 0 10px #FF0000, 
-        0 0 15px #FF4500, 
-        0 0 20px #FF4500, 
-        0 0 25px #FF6347, 
-        0 0 30px #FF6347;
-      animation: glow 2s infinite;
-    }
-
-    @keyframes glow {
-      0% {
-        text-shadow: 
-          0 0 5px #FF0000, 
-          0 0 10px #FF0000, 
-          0 0 15px #FF4500, 
-          0 0 20px #FF4500, 
-          0 0 25px #FF6347, 
-          0 0 30px #FF6347;
-      }
-      50% {
-        text-shadow: 
-          0 0 5px #32CD32, 
-          0 0 10px #32CD32, 
-          0 0 15px #32CD32, 
-          0 0 20px #7CFC00, 
-          0 0 25px #ADFF2F, 
-          0 0 30px #ADFF2F;
-      }
-      100% {
-        text-shadow: 
-          0 0 5px #1E90FF, 
-          0 0 10px #1E90FF, 
-          0 0 15px #00BFFF, 
-          0 0 20px #00BFFF, 
-          0 0 25px #87CEFA, 
-          0 0 30px #87CEFA;
-      }
+    .whatsapp-button i {
+      margin-right: 5px;
     }
   </style>
 </head>
 <body>
+  <div class="loading">
+    <div></div>
+  </div>
+
   <div class="container">
+    <div class="header">
+      <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" width="40">
+      <h1>Ethix-MD Pairing Server</h1>
+    </div>
     <div class="main">
-      <div class="box" id="box">
-        <div id="text">
-          <i class="fa fa-user"></i>
-          <p>
-            <h3 class="centered-text">Sarkar-MD</h3>
-            <br>
-            <h6>Enter your number with country code.</h6>
-            <div class="input-container">
-              <input placeholder="+923253617422x" type="number" id="number" placeholder="❗ Enter your phone number with country code" name="">
-              <button id="submit">ENTER</button>
-            </div>
-            <!-- Add the loading spinner -->
-            <div id="loading-spinner">
-              <i class="fas fa-spinner fa-spin"></i>
-            </div>
-            <br>
-            <br>
-            <main id="pair"></main>
-          </p>
-        </div>
-      </div>
+      <form>
+        <input type="text" id="countryCode" placeholder="+Code">
+        <input type="text" id="number" placeholder="Phone number">
+        <button id="submit">Get Pair Code</button>
+        <main id="pair"></main>
+      </form>
     </div>
   </div>
-  <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
-  ></script>
+
+  <button id="icon-button" class="whatsapp-button" onclick="window.open('https://whatsapp.com/channel/0029Vag1WQFJf05dF0pQeU3u', '_blank')">
+    <i class="fab fa-whatsapp"></i> Join WhatsApp Channel
+  </button>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
   <script>
-    
+    async function getCountryCode() {
+      try {
+        let { data } = await axios('https://ipapi.co/json/');
+        document.getElementById('countryCode').value = data.country_calling_code || '+1';
+      } catch (error) {
+        document.getElementById('countryCode').value = '+1'; // Default to +1
+      }
+    }
+
+    window.onload = getCountryCode;
+
     let a = document.getElementById("pair");
     let b = document.getElementById("submit");
     let c = document.getElementById("number");
-    let box = document.getElementById("box");
+    let cc = document.getElementById("countryCode");
+
+    let isSubmitting = false;
+    let isCodeDisplayed = false;
 
     async function Copy() {
-      let text = document.getElementById("copy").innerText;
-      let obj = document.getElementById("copy");
-      await navigator.clipboard.writeText(obj.innerText.replace('CODE: ', ''));
-      obj.innerText = "✔️ COPIED";
-      obj.style = "color:red;font-weight:bold";
-      obj.size = "5";
-      setTimeout(() => {
-        obj.innerText = text;
-        obj.style = "color:white;font-weight-bold";
-        obj.size = "5";
-      }, 500);
+      let codeElement = document.getElementById("copy");
+      let codeText = codeElement ? codeElement.innerText.replace('CODE: ', '') : '';
+      if (codeText) {
+        await navigator.clipboard.writeText(codeText);
+        codeElement.innerText = "COPIED";
+        codeElement.style.color = "blue";
+        setTimeout(() => {
+          codeElement.innerText = `CODE: ${codeText}`;
+          codeElement.style.color = "black";
+        }, 500);
+      }
     }
 
     b.addEventListener("click", async (e) => {
       e.preventDefault();
+
+      if (isCodeDisplayed) {
+        alert("Please wait for 2 minutes before requesting a new code.");
+        return;
+      }
+
+      if (isSubmitting) {
+        alert("Please wait for the code before trying to request again.");
+        return;
+      }
+
       if (!c.value) {
-        a.innerHTML = '<a style="color:black;font-weight:bold">❗Enter your whatsapp number with country code.</a><br><br>';
-      } else if (c.value.replace(/[^0-9]/g, "").length < 11) {
-        a.innerHTML = '<a style="color:black;font-weight:bold">❗Invalid number format. Please try again.</a><br><br>';
+        a.innerHTML = '<a style="color:black;font-weight:bold">Enter your phone number</a><br><br>';
+      } else if (c.value.replace(/[^0-9]/g, "").length < 7) {
+        a.innerHTML = '<a style="color:black;font-weight:bold">Invalid number format</a><br><br>';
       } else {
-        const bc = c.value.replace(/[^0-9]/g, "");
-        let bb = "";
-        let bbc = "";
-        const cc = bc.split('');
-        cc.map(a => {
-          bbc += a;
-          if (bbc.length == 3) {
-            bb += " " + a;
-          } else if (bbc.length == 8) {
-            bb += " " + a;
+        isSubmitting = true;
+        document.querySelector('.loading').style.display = 'flex';
+
+        const fullPhoneNumber = `${cc.value}${c.value.replace(/[^0-9]/g, "")}`;
+
+        try {
+          let { data } = await axios(`/pair?phone=${encodeURIComponent(fullPhoneNumber)}`);
+          let code = data.code || "Service Unavailable";
+          if (code !== "Service Unavailable") {
+            a.innerHTML = `<div><span id="copy" onclick="Copy()">CODE: ${code}</span></div><button id="copyb" onclick="Copy()">Copy Code</button>`;
+            isCodeDisplayed = true;
+            setTimeout(() => {
+              isCodeDisplayed = false;
+            }, 120000);
           } else {
-            bb += a;
+            a.innerHTML = '<a style="color:red;font-weight:bold">Error: Service Unavailable. Please try again later.</a><br><br>';
           }
-        });
-        c.type = "text";
-        c.value = "+" + bb;
-        c.style = "color:white;font-size:20px";
-        // Show the loading spinner
-        document.getElementById("loading-spinner").style.display = "block";
-        a.innerHTML = ''; // Clear the previous content
-        let { data } = await axios(`/code?number=${bc}`);
-        let code = data.code || "❗ Service Unavailable";
-        a.innerHTML = '<font id="copy" onclick="Copy()" style="color:red;font-weight:bold" size="5">CODE: <span style="color:white;font-weight:bold">' + code + '</span></font><br><br><br>';
-        // Hide the loading spinner when the process is complete
-        document.getElementById("loading-spinner").style.display = "none";
+        } catch (error) {
+          a.innerHTML = '<a style="color:red;font-weight:bold">Error: Please try again later.</a><br><br>';
+        } finally {
+          document.querySelector('.loading').style.display = 'none';
+          isSubmitting = false;
+        }
       }
     });
   </script>
