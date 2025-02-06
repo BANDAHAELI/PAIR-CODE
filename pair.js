@@ -105,4 +105,3 @@ process.on('uncaughtException', function (err) {
 
 
 module.exports = router;
-//kaise hain ap log
